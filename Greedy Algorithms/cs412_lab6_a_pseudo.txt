@@ -1,0 +1,12 @@
+function knapsack(items, W, i):
+    if i is 0 or W is 0:
+        return 0
+    if items[i].weight > W:
+        return knapsack(items, W, i - 1)
+    else:
+        take = items[i].value + knapsack(items, W - items[i].weight, i - 1)
+        dontTake = knapsack(items, W, i - 1)
+        return max(take, dontTake)
+
+function solveKnapsackProblem(items, W):
+    return knapsack(items, W, len(items) - 1)

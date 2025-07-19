@@ -1,3 +1,4 @@
+# Description:
 Finding an Arbitrage
 In currency exchange markets units of one currency, such as US Dollars, can be exchanged for units of a different currency, like Italian Lira. These exchanges are set by the market's exchange rate, which typically fluctuates throughout the day. For example, at the time of this assignment's writing, the exchange rate between the US Dollar (USD) and the Great British Pound (GBP) was 1 USD to 0.77 GBP. This means that $150 is worth 150*0.77=115.5 GBP and 150 GPB = 150 / 0.77 = $194.81. The exchange rates are dynamic and constantly change.
 
@@ -20,14 +21,11 @@ The first problem can be overcome using the following trick: the logarithm funct
 
 But now the second problem is that we want to detect negative weight cycles because Bellman-Ford can do that for us, but above we described a positive weight cycle. Now we can use the following trick--simply negate each log value. log(r1) + log(r2) + ... + log(rn) > 0 if and only if (-log(r1)) + (-log(r2)) + ... + (-log(rn)) < 0. Now, you should be able to see how to build a graph, with some appropriate weights, and use it to find arbitrage cycles directly!
 
-Input
+## Input
 The first line of the input will contain a single integer m describing how many exchange rates are in the exchange. The next m lines will be given by cIn cOut r where cIn is the code for the starting currency (like USD or GPB), cOut is the code for the ending currency, and r is the exchange rate (i.e. "USD GBP 0.75" codes for 1 USD = 0.75 GBP). 
 
-Output and Rubrics
-This assignment is worth 15 points.
+## Goal of code:
 
-9 points (partial) -- code identifies an the presence or absence of an arbitrage correctly on published test cases
-3 points (partial) -- code  identifies an the presence or absence of an arbitrage correctly on hidden test cases
-2 points (full credit) -- code outputs the actual exchanges correctly and in the format specified on the public test cases
-1 point  (full credit) -- code outputs the actual exchanges correctly and in the format specified on the hidden test cases
-For full credit, when an arbitrage is detected, in addition to the output above, your code should output the actual exchanges that need to be made by showing each currency code in the exchange separated by " => " on a second line, and a third line containing the actual change as a multiplicative factor with the format "X factor increase", which should be formatted to 5 decimal points.
+- code identifies the presence or absence of an arbitrage correctly
+- code outputs the actual exchanges correctly
+- when an arbitrage is detected, code should output the actual exchanges that need to be made by showing each currency code in the exchange separated by " => " on a second line, and a third line containing the actual change as a multiplicative factor with the format "X factor increase", which should be formatted to 5 decimal points.
